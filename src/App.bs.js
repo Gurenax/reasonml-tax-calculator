@@ -11,5 +11,27 @@ var annualSalary = match ? Caml_format.caml_int_of_string(Caml_array.caml_array_
 
 console.log("The annual salary is: " + String(annualSalary));
 
+function calculateTaxBracket(salary) {
+  if (salary <= 18200) {
+    return "Tax Bracket 1";
+  } else if (salary > 18200 && salary <= 37000) {
+    return "Tax Bracket 2";
+  } else if (salary > 37000 && salary <= 90000) {
+    return "Tax Bracket 3";
+  } else if (salary > 90000 && salary <= 180000) {
+    return "Tax Bracket 4";
+  } else if (salary > 180000) {
+    return "Tax Bracket 5";
+  } else {
+    return "None";
+  }
+}
+
+var taxBracket = calculateTaxBracket(annualSalary);
+
+console.log(taxBracket);
+
 exports.annualSalary = annualSalary;
+exports.calculateTaxBracket = calculateTaxBracket;
+exports.taxBracket = taxBracket;
 /* annualSalary Not a pure module */
