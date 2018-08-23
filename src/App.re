@@ -7,10 +7,18 @@ let annualSalary = switch(Array.length(Sys.argv) > 2) {
 
 Js.log("The annual salary is: "++string_of_int(annualSalary));
 
-/* Determine tax brackeet */
+/* Function to calculate the tax brackeet */
+let calculateTaxBracket = salary => {
+    if(salary <= 18200) { "Tax Bracket 1" }
+    else if(salary > 18200 && salary <= 37000) { "Tax Bracket 2" }
+    else if(salary > 37000 && salary <= 90000) { "Tax Bracket 3" }
+    else if(salary > 90000 && salary <= 180000) { "Tax Bracket 4" }
+    else if(salary > 180000) { "Tax Bracket 5" }
+    else "None"
+}
 
-/*=if(B1<=18200,"Tax Bracket 1",IF(AND(B1>18200,B1 <=37000),"Tax Bracket 2",IF(AND(B1>37000,B1 <=90000),"Tax Bracket 3",IF(AND(B1>90000,B1 <=180000),"Tax Bracket 4",IF(B1>180000,"Tax Bracket 5")))))*/
+/* Calculate the tax bracket */
+let taxBracket = calculateTaxBracket(annualSalary)
+Js.log(taxBracket)
 
-
-
-/* let taxBracket = switch(taxBracket)  */
+/* Function to calculate the annual tax */
