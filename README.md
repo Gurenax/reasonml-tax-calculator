@@ -1,7 +1,8 @@
 # Calculate your Aussie Taxed Salary using ReasonML
 
-Hello! This project allows you to calculate your Aussie Taxed Salary.
-Last Updated: 2018 :)
+Hello! This project allows you to calculate your Aussie Taxed Salary with Pure Functions.
+
+Last upated: 2018 :)
 
 # Build
 ```
