@@ -1,6 +1,6 @@
-# Calculate your Aussie Salary using ReasonML
+# Calculate your Aussie Taxed Salary using ReasonML
 
-Hello! This project allows you to calculate your Aussie Salary.
+Hello! This project allows you to calculate your Aussie Taxed Salary.
 Last Updated: 2018 :)
 
 # Build
@@ -15,7 +15,7 @@ yarn start
 
 # Run
 ```
-node src/App.bs.js
+node src/App.bs.js <Decimal Value of your Salary>
 ```
 
 # Editor
