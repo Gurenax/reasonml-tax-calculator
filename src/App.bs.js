@@ -60,7 +60,7 @@ function calculateMonthlyNetEarnings(taxedSalary) {
   return taxedSalary / 12.0;
 }
 
-console.log("The annual salary is: " + Pervasives.string_of_float(annualSalary));
+console.log("The annual salary is: $" + Pervasives.string_of_float(annualSalary));
 
 var taxBracket = calculateTaxBracket(annualSalary);
 
@@ -68,19 +68,19 @@ console.log("The tax bracket is: " + taxBracket);
 
 var annualTax = calculateAnnualTax(annualSalary);
 
-console.log("The annual tax is: " + Pervasives.string_of_float(annualTax));
+console.log("The annual tax is: $" + Pervasives.string_of_float(annualTax));
 
 var annualTaxedIncome = annualSalary - annualTax;
 
-console.log("The annual taxed income is: " + Pervasives.string_of_float(annualTaxedIncome));
+console.log("The annual taxed income is: $" + Pervasives.string_of_float(annualTaxedIncome));
 
 var incomeLessMedicalLevy = calculateIncomeLessMedicalLevy(annualTaxedIncome, annualSalary);
 
-console.log("The annual taxed income less medical levy(2%) is: " + Pervasives.string_of_float(incomeLessMedicalLevy));
+console.log("The annual taxed income less medical levy(2%) is: $" + Pervasives.string_of_float(incomeLessMedicalLevy));
 
 var monthlyNetEarnings = incomeLessMedicalLevy / 12.0;
 
-console.log("The monthly net earnings is: " + Pervasives.string_of_float(monthlyNetEarnings));
+console.log("The monthly net earnings is: $" + Pervasives.string_of_float(monthlyNetEarnings));
 
 exports.annualSalary = annualSalary;
 exports.calculateTaxBracket = calculateTaxBracket;

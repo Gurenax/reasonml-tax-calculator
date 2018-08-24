@@ -50,7 +50,7 @@ let calculateMonthlyNetEarnings = (taxedSalary: float) : float => taxedSalary /.
 /*
  * Output
  */
-Js.log("The annual salary is: "++string_of_float(annualSalary))
+Js.log("The annual salary is: $"++string_of_float(annualSalary))
 
 /* Calculate the tax bracket */
 let taxBracket = calculateTaxBracket(annualSalary)
@@ -58,16 +58,16 @@ Js.log("The tax bracket is: "++taxBracket)
 
 /* Calculate the annual tax */
 let annualTax = calculateAnnualTax(annualSalary)
-Js.log("The annual tax is: "++string_of_float(annualTax))
+Js.log("The annual tax is: $"++string_of_float(annualTax))
 
 /* Calculate the annual taxed income */
 let annualTaxedIncome = calculateAnnualTaxedIncome(annualSalary, annualTax)
-Js.log("The annual taxed income is: "++string_of_float(annualTaxedIncome))
+Js.log("The annual taxed income is: $"++string_of_float(annualTaxedIncome))
 
 /* Calculate income less medical levy */
 let incomeLessMedicalLevy = calculateIncomeLessMedicalLevy(annualTaxedIncome, annualSalary)
-Js.log("The annual taxed income less medical levy(2%) is: "++string_of_float(incomeLessMedicalLevy))
+Js.log("The annual taxed income less medical levy(2%) is: $"++string_of_float(incomeLessMedicalLevy))
 
 /* Calculate monthly net earnings */
 let monthlyNetEarnings = calculateMonthlyNetEarnings(incomeLessMedicalLevy)
-Js.log("The monthly net earnings is: "++string_of_float(monthlyNetEarnings))
+Js.log("The monthly net earnings is: $"++string_of_float(monthlyNetEarnings))
