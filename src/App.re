@@ -23,7 +23,6 @@ Js.log("The tax bracket is: "++taxBracket)
 let calculateAnnualTax = (salary: float) : float => {
   /* Calculate the tax bracket */
   let taxBracket = calculateTaxBracket(salary)
-
   /* Computing floats require . after their operator */
   let compute = (nSalary: float, num1: float, num2: float, num3: float) : float => (nSalary -. num1) *. num2 +. num3
 
@@ -41,7 +40,6 @@ let calculateAnnualTax = (salary: float) : float => {
 let annualTax = calculateAnnualTax(annualSalary)
 Js.log("The annual tax is: "++string_of_float(annualTax))
 
-
 /* Function to calculate annual taxed income */
 let calculateAnnualTaxedIncome = (annualSalary: float, annualTax: float): float => annualSalary -. annualTax
 
@@ -58,3 +56,8 @@ let calculateIncomeLessMedicalLevy = (taxedSalary: float, annualSalary: float): 
 /* Calculate income less medical levy */
 let incomeLessMedicalLevy = calculateIncomeLessMedicalLevy(annualTaxedIncome, annualSalary)
 Js.log("The annual taxed income less medical levy(2%) is: "++string_of_float(incomeLessMedicalLevy))
+
+/* Function to calculate monthly net earnings */
+let calculateMonthlyNetEarnings = (taxedSalary: float) : float => taxedSalary /. 12.0
+let monthlyNetEarnings = calculateMonthlyNetEarnings(incomeLessMedicalLevy)
+Js.log("The monthly net earnings is: "++string_of_float(monthlyNetEarnings))
