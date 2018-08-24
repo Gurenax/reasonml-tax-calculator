@@ -38,6 +38,7 @@ function calculateAnnualTax(salary) {
     return (nSalary - num1) * num2 + num3;
   };
   switch (taxBracket) {
+    case "None" : 
     case "Tax Bracket 1" : 
         return 0.0;
     case "Tax Bracket 2" : 

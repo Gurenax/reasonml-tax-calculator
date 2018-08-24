@@ -32,6 +32,7 @@ let calculateAnnualTax = (salary: float) : float => {
     | "Tax Bracket 3" => compute(salary, 37000.0, 0.325, 3572.0)
     | "Tax Bracket 4" => compute(salary, 90000.0, 0.37, 20797.0)
     | "Tax Bracket 5" => compute(salary, 180000.0, 0.45, 54097.0)
+    | "None" => 0.0
     | _ => 0.0
   }
 }
