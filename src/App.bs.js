@@ -10,8 +10,6 @@ var match = Sys.argv.length > 2;
 
 var annualSalary = match ? Caml_format.caml_float_of_string(Caml_array.caml_array_get(Sys.argv, 2)) : 0.0;
 
-console.log("The annual salary is: " + Pervasives.string_of_float(annualSalary));
-
 function calculateTaxBracket(salary) {
   if (salary <= 18200.0) {
     return "Tax Bracket 1";
@@ -27,10 +25,6 @@ function calculateTaxBracket(salary) {
     return "None";
   }
 }
-
-var taxBracket = calculateTaxBracket(annualSalary);
-
-console.log("The tax bracket is: " + taxBracket);
 
 function calculateAnnualTax(salary) {
   var taxBracket = calculateTaxBracket(salary);
@@ -54,29 +48,35 @@ function calculateAnnualTax(salary) {
   }
 }
 
-var annualTax = calculateAnnualTax(annualSalary);
-
-console.log("The annual tax is: " + Pervasives.string_of_float(annualTax));
-
 function calculateAnnualTaxedIncome(annualSalary, annualTax) {
   return annualSalary - annualTax;
 }
-
-var annualTaxedIncome = annualSalary - annualTax;
-
-console.log("The annual taxed income is: " + Pervasives.string_of_float(annualTaxedIncome));
 
 function calculateIncomeLessMedicalLevy(taxedSalary, annualSalary) {
   return taxedSalary - annualSalary * 0.02;
 }
 
-var incomeLessMedicalLevy = calculateIncomeLessMedicalLevy(annualTaxedIncome, annualSalary);
-
-console.log("The annual taxed income less medical levy(2%) is: " + Pervasives.string_of_float(incomeLessMedicalLevy));
-
 function calculateMonthlyNetEarnings(taxedSalary) {
   return taxedSalary / 12.0;
 }
+
+console.log("The annual salary is: " + Pervasives.string_of_float(annualSalary));
+
+var taxBracket = calculateTaxBracket(annualSalary);
+
+console.log("The tax bracket is: " + taxBracket);
+
+var annualTax = calculateAnnualTax(annualSalary);
+
+console.log("The annual tax is: " + Pervasives.string_of_float(annualTax));
+
+var annualTaxedIncome = annualSalary - annualTax;
+
+console.log("The annual taxed income is: " + Pervasives.string_of_float(annualTaxedIncome));
+
+var incomeLessMedicalLevy = calculateIncomeLessMedicalLevy(annualTaxedIncome, annualSalary);
+
+console.log("The annual taxed income less medical levy(2%) is: " + Pervasives.string_of_float(incomeLessMedicalLevy));
 
 var monthlyNetEarnings = incomeLessMedicalLevy / 12.0;
 
@@ -84,13 +84,13 @@ console.log("The monthly net earnings is: " + Pervasives.string_of_float(monthly
 
 exports.annualSalary = annualSalary;
 exports.calculateTaxBracket = calculateTaxBracket;
-exports.taxBracket = taxBracket;
 exports.calculateAnnualTax = calculateAnnualTax;
-exports.annualTax = annualTax;
 exports.calculateAnnualTaxedIncome = calculateAnnualTaxedIncome;
-exports.annualTaxedIncome = annualTaxedIncome;
 exports.calculateIncomeLessMedicalLevy = calculateIncomeLessMedicalLevy;
-exports.incomeLessMedicalLevy = incomeLessMedicalLevy;
 exports.calculateMonthlyNetEarnings = calculateMonthlyNetEarnings;
+exports.taxBracket = taxBracket;
+exports.annualTax = annualTax;
+exports.annualTaxedIncome = annualTaxedIncome;
+exports.incomeLessMedicalLevy = incomeLessMedicalLevy;
 exports.monthlyNetEarnings = monthlyNetEarnings;
 /* annualSalary Not a pure module */

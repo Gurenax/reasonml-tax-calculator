@@ -3,7 +3,6 @@ let annualSalary = switch(Array.length(Sys.argv) > 2) {
   | true => float_of_string(Sys.argv[2])
   | false => 0.0
 }
-Js.log("The annual salary is: "++string_of_float(annualSalary))
 
 /* Function to calculate the tax brackeet */
 let calculateTaxBracket = (salary: float) : string => {
@@ -14,10 +13,6 @@ let calculateTaxBracket = (salary: float) : string => {
     else if(salary > 180000.0) { "Tax Bracket 5" }
     else "None"
 }
-
-/* Calculate the tax bracket */
-let taxBracket = calculateTaxBracket(annualSalary)
-Js.log("The tax bracket is: "++taxBracket)
 
 /* Function to calculate the annual tax */
 let calculateAnnualTax = (salary: float) : float => {
@@ -39,16 +34,8 @@ let calculateAnnualTax = (salary: float) : float => {
   }
 }
 
-/* Calculate the annual tax */
-let annualTax = calculateAnnualTax(annualSalary)
-Js.log("The annual tax is: "++string_of_float(annualTax))
-
 /* Function to calculate annual taxed income */
 let calculateAnnualTaxedIncome = (annualSalary: float, annualTax: float): float => annualSalary -. annualTax
-
-/* Calculate the annual taxed income */
-let annualTaxedIncome = calculateAnnualTaxedIncome(annualSalary, annualTax)
-Js.log("The annual taxed income is: "++string_of_float(annualTaxedIncome))
 
 /* Function to calculate income less medical levy */
 let calculateIncomeLessMedicalLevy = (taxedSalary: float, annualSalary: float): float => {
@@ -56,12 +43,29 @@ let calculateIncomeLessMedicalLevy = (taxedSalary: float, annualSalary: float): 
   taxedSalary -. (annualSalary *. medicalLevyPercentage)
 }
 
+/* Function to calculate monthly net earnings */
+let calculateMonthlyNetEarnings = (taxedSalary: float) : float => taxedSalary /. 12.0
+
+/*
+ * Output
+ */
+Js.log("The annual salary is: "++string_of_float(annualSalary))
+
+/* Calculate the tax bracket */
+let taxBracket = calculateTaxBracket(annualSalary)
+Js.log("The tax bracket is: "++taxBracket)
+
+/* Calculate the annual tax */
+let annualTax = calculateAnnualTax(annualSalary)
+Js.log("The annual tax is: "++string_of_float(annualTax))
+
+/* Calculate the annual taxed income */
+let annualTaxedIncome = calculateAnnualTaxedIncome(annualSalary, annualTax)
+Js.log("The annual taxed income is: "++string_of_float(annualTaxedIncome))
+
 /* Calculate income less medical levy */
 let incomeLessMedicalLevy = calculateIncomeLessMedicalLevy(annualTaxedIncome, annualSalary)
 Js.log("The annual taxed income less medical levy(2%) is: "++string_of_float(incomeLessMedicalLevy))
-
-/* Function to calculate monthly net earnings */
-let calculateMonthlyNetEarnings = (taxedSalary: float) : float => taxedSalary /. 12.0
 
 /* Calculate monthly net earnings */
 let monthlyNetEarnings = calculateMonthlyNetEarnings(incomeLessMedicalLevy)
