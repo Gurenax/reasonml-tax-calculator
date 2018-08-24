@@ -57,29 +57,29 @@ var annualTax = calculateAnnualTax(annualSalary);
 
 console.log("The annual tax is: " + Pervasives.string_of_float(annualTax));
 
-function calculateIncomeLessAnnualTax(annualSalary, annualTax) {
+function calculateAnnualTaxedIncome(annualSalary, annualTax) {
   return annualSalary - annualTax;
 }
 
-var incomeLessAnnualTax = annualSalary - annualTax;
+var annualTaxedIncome = annualSalary - annualTax;
 
-console.log("The income less annual tax is: " + Pervasives.string_of_float(incomeLessAnnualTax));
+console.log("The annual taxed income is: " + Pervasives.string_of_float(annualTaxedIncome));
 
 function calculateIncomeLessMedicalLevy(taxedSalary, annualSalary) {
   return taxedSalary - annualSalary * 0.02;
 }
 
-var incomeLessMedicalLevy = calculateIncomeLessMedicalLevy(incomeLessAnnualTax, annualSalary);
+var incomeLessMedicalLevy = calculateIncomeLessMedicalLevy(annualTaxedIncome, annualSalary);
 
-console.log("The income less medical levy(2%) is: " + Pervasives.string_of_float(incomeLessMedicalLevy));
+console.log("The annual taxed income less medical levy(2%) is: " + Pervasives.string_of_float(incomeLessMedicalLevy));
 
 exports.annualSalary = annualSalary;
 exports.calculateTaxBracket = calculateTaxBracket;
 exports.taxBracket = taxBracket;
 exports.calculateAnnualTax = calculateAnnualTax;
 exports.annualTax = annualTax;
-exports.calculateIncomeLessAnnualTax = calculateIncomeLessAnnualTax;
-exports.incomeLessAnnualTax = incomeLessAnnualTax;
+exports.calculateAnnualTaxedIncome = calculateAnnualTaxedIncome;
+exports.annualTaxedIncome = annualTaxedIncome;
 exports.calculateIncomeLessMedicalLevy = calculateIncomeLessMedicalLevy;
 exports.incomeLessMedicalLevy = incomeLessMedicalLevy;
 /* annualSalary Not a pure module */

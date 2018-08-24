@@ -42,12 +42,12 @@ let annualTax = calculateAnnualTax(annualSalary)
 Js.log("The annual tax is: "++string_of_float(annualTax))
 
 
-/* Function to calculate income less annual tax */
-let calculateIncomeLessAnnualTax = (annualSalary: float, annualTax: float): float => annualSalary -. annualTax
+/* Function to calculate annual taxed income */
+let calculateAnnualTaxedIncome = (annualSalary: float, annualTax: float): float => annualSalary -. annualTax
 
-/* Calculate income less annual tax */
-let incomeLessAnnualTax = calculateIncomeLessAnnualTax(annualSalary, annualTax)
-Js.log("The income less annual tax is: "++string_of_float(incomeLessAnnualTax))
+/* Calculate the annual taxed income */
+let annualTaxedIncome = calculateAnnualTaxedIncome(annualSalary, annualTax)
+Js.log("The annual taxed income is: "++string_of_float(annualTaxedIncome))
 
 /* Function to calculate income less medical levy */
 let calculateIncomeLessMedicalLevy = (taxedSalary: float, annualSalary: float): float => {
@@ -56,5 +56,5 @@ let calculateIncomeLessMedicalLevy = (taxedSalary: float, annualSalary: float): 
 }
 
 /* Calculate income less medical levy */
-let incomeLessMedicalLevy = calculateIncomeLessMedicalLevy(incomeLessAnnualTax, annualSalary)
-Js.log("The income less medical levy(2%) is: "++string_of_float(incomeLessMedicalLevy))
+let incomeLessMedicalLevy = calculateIncomeLessMedicalLevy(annualTaxedIncome, annualSalary)
+Js.log("The annual taxed income less medical levy(2%) is: "++string_of_float(incomeLessMedicalLevy))
