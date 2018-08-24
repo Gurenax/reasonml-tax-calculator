@@ -1,18 +1,22 @@
-# Basic Reason Template
+# Calculate your Aussie Salary using ReasonML
 
-Hello! This project allows you to quickly get started with Reason and BuckleScript. If you wanted a more sophisticated version, try the `react` template (`bsb -theme react -init .`).
+Hello! This project allows you to calculate your Aussie Salary.
+Last Updated: 2018 :)
 
 # Build
 ```
-npm run build
+yarn build
 ```
 
 # Build + Watch
-
 ```
-npm run start
+yarn start
 ```
 
+# Run
+```
+node src/App.bs.js
+```
 
 # Editor
 If you use `vscode`, Press `Windows + Shift + B` it will build automatically
