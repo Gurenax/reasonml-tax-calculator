@@ -23,6 +23,7 @@ let calculateAnnualTax = (salary: float) : float => {
   /* Computing floats require . after their operator */
   let compute = (nSalary: float, num1: float, num2: float, num3: float) : float => (nSalary -. num1) *. num2 +. num3
 
+  /* Compute based on Tax Bracket */
   switch(taxBracket) {
     | "Tax Bracket 1" => 0.0
     | "Tax Bracket 2" => compute(salary, 18200.0, 0.19, 0.0)
