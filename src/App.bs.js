@@ -10,7 +10,7 @@ var match = Sys.argv.length > 2;
 
 var annualSalary = match ? Caml_format.caml_float_of_string(Caml_array.caml_array_get(Sys.argv, 2)) : 0.0;
 
-function calculateTaxBracket(salary) {
+function determineTaxBracket(salary) {
   if (salary <= 18200.0) {
     return "Tax Bracket 1";
   } else if (salary > 18200.0 && salary <= 37000.0) {
@@ -27,11 +27,11 @@ function calculateTaxBracket(salary) {
 }
 
 function calculateAnnualTax(salary) {
-  var taxBracket = calculateTaxBracket(salary);
   var compute = function (nSalary, num1, num2, num3) {
     return (nSalary - num1) * num2 + num3;
   };
-  switch (taxBracket) {
+  var match = determineTaxBracket(salary);
+  switch (match) {
     case "None" : 
     case "Tax Bracket 1" : 
         return 0.0;
@@ -62,7 +62,7 @@ function calculateMonthlyNetEarnings(taxedSalary) {
 
 console.log("The annual salary is: $" + Pervasives.string_of_float(annualSalary));
 
-var taxBracket = calculateTaxBracket(annualSalary);
+var taxBracket = determineTaxBracket(annualSalary);
 
 console.log("The tax bracket is: " + taxBracket);
 
@@ -83,7 +83,7 @@ var monthlyNetEarnings = incomeLessMedicalLevy / 12.0;
 console.log("The monthly net earnings is: $" + Pervasives.string_of_float(monthlyNetEarnings));
 
 exports.annualSalary = annualSalary;
-exports.calculateTaxBracket = calculateTaxBracket;
+exports.determineTaxBracket = determineTaxBracket;
 exports.calculateAnnualTax = calculateAnnualTax;
 exports.calculateAnnualTaxedIncome = calculateAnnualTaxedIncome;
 exports.calculateIncomeLessMedicalLevy = calculateIncomeLessMedicalLevy;

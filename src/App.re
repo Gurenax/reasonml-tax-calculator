@@ -4,8 +4,8 @@ let annualSalary = switch(Array.length(Sys.argv) > 2) {
   | false => 0.0
 }
 
-/* Function to calculate the tax brackeet */
-let calculateTaxBracket = (salary: float) : string => {
+/* Function to determine the tax bracket */
+let determineTaxBracket = (salary: float) : string => {
     if(salary <= 18200.0) { "Tax Bracket 1" }
     else if(salary > 18200.0 && salary <= 37000.0) { "Tax Bracket 2" }
     else if(salary > 37000.0 && salary <= 90000.0) { "Tax Bracket 3" }
@@ -17,14 +17,11 @@ let calculateTaxBracket = (salary: float) : string => {
 /* Function to calculate the annual tax */
 let calculateAnnualTax = (salary: float) : float => {
   
-  /* Calculate the tax bracket */
-  let taxBracket = calculateTaxBracket(salary)
-
   /* Computing floats require . after their operator */
   let compute = (nSalary: float, num1: float, num2: float, num3: float) : float => (nSalary -. num1) *. num2 +. num3
 
   /* Compute based on Tax Bracket */
-  switch(taxBracket) {
+  switch(determineTaxBracket(salary)) {
     | "Tax Bracket 1" => 0.0
     | "Tax Bracket 2" => compute(salary, 18200.0, 0.19, 0.0)
     | "Tax Bracket 3" => compute(salary, 37000.0, 0.325, 3572.0)
@@ -52,8 +49,8 @@ let calculateMonthlyNetEarnings = (taxedSalary: float) : float => taxedSalary /.
  */
 Js.log("The annual salary is: $"++string_of_float(annualSalary))
 
-/* Calculate the tax bracket */
-let taxBracket = calculateTaxBracket(annualSalary)
+/* Determine the tax bracket */
+let taxBracket = determineTaxBracket(annualSalary)
 Js.log("The tax bracket is: "++taxBracket)
 
 /* Calculate the annual tax */
